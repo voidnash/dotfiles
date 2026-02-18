@@ -104,4 +104,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias k=kubectl
 alias kx=kubectx
+alias ls="lsd -lah"
+
+alias aws="podman run --rm -it -v ~/.aws:/root/.aws amazon/aws-cli"
+
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
+
 
