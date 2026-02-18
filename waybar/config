@@ -1,0 +1,39 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+
+  "modules-left": ["tray"],
+  "modules-center": ["cpu", "memory"],
+  "modules-right": ["kernel", "clock"],
+
+  "cpu": {
+    "interval": 2,
+    "format": " {usage}%",
+    "tooltip": false
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": " {percentage}%",
+    "tooltip": false
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": " {:%H:%M}",
+    "tooltip": false
+  },
+
+  "kernel": {
+    "interval": 3600,
+    "exec": "uname -r",
+    "format": " {}",
+    "tooltip": false
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  }
+}
