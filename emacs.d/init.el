@@ -71,10 +71,41 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(gruvbox-theme terraform-mode)))
+ '(package-selected-packages '(## gruvbox-theme neotree terraform-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+;; Certifique‑se de ter use-package instalado
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(require 'use-package)
+
+(use-package neotree
+  :ensure t
+  :bind ([f8] . neotree-toggle)
+  :config
+  ;; Exibir a barra lateral à esquerda
+  (setq neo-window-position 'left)
+
+  (setq neo-window-width 35)
+
+  (setq neo-show-hidden-files t)
+
+  (setq neo-autorefresh t)
+
+  (setq neo-banner-message nil)
+
+  (when (featurep 'projectile)
+    (setq neo-smart-open t)))
+
+(defun my-neotree-hide-on-file-open ()
+  (when (neo-global--window-exists-p)
+    (neotree-hide)))
+(add-hook 'find-file-hook #'my-neotree-hide-on-file-open)
